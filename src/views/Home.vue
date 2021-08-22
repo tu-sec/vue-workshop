@@ -15,7 +15,7 @@ export default class Home extends Vue {}
 .home {
   height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
