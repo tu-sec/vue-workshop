@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <p>Home Page</p>
-    <button @click="goToAbout()">Go to About</button>
+    <p>About Page</p>
+    <button @click="goToHome()">Go to Home</button>
   </div>
 </template>
 
@@ -9,13 +9,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Home extends Vue {
-  /**
-   * Pushes a new route to the current route
-   */
-  goToAbout() {
-    this.$router.push('about');
-  }
+export default class About extends Vue {
+    /**
+     * Rolls back the router history to go to home
+     */
+    goToHome() {
+        this.$router.back();
+    }
 }
 </script>
 
