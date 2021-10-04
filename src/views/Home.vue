@@ -1,14 +1,35 @@
 <template>
   <div class="home">
-    <p>Welcome to your first Vue App!</p>
+    <Alert @myEvent="handleEvent($event)" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Alert from '@/components/Alert.vue';
 
-@Component
-export default class Home extends Vue {}
+@Component({
+  components: { Alert },
+})
+export default class Home extends Vue {
+  // Good for before DOM renders
+  created() {
+    window.alert('Created');
+  }
+
+  // Good for after DOM renders
+  mounted() {
+    window.alert('Mounted');
+  }
+
+  /**
+   * Takes the event from the Alert component and creates
+   * a new window alert
+   */
+  handleEvent(val: boolean) {
+    window.alert(`Value is ${val}`);
+  }
+}
 </script>
 
 <style lang="scss" scoped>
